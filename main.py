@@ -16,6 +16,10 @@ time.sleep(0.5)
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return 
+
 @app.route('/stream')
 def stream():
     return Response(gen(),
@@ -52,7 +56,7 @@ def display(frame, decoded_objs):
         frame = cv2.rectangle(frame,
 			      (left, top),
 			      (left + width, height + top),
-			      (0, 255, 0), 2)
+			      (255, 0, 0), 2)
 
     return frame
     
