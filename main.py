@@ -1,4 +1,4 @@
-from flask import Flask, Response
+from flask import Flask, Response, render_template
 from pyzbar import pyzbar
 from picamera.array import PiRGBArray
 from picamera import PiCamera
@@ -17,8 +17,11 @@ time.sleep(0.5)
 app = Flask(__name__)
 
 @app.route('/')
-def index():
-    return 
+def hello():
+    name = "Hoge"
+    #return name
+    return render_template('hello.html', title='flask test', name=name) #変更
+    
 
 @app.route('/stream')
 def stream():
